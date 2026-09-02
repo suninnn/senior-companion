@@ -6,6 +6,7 @@ import { useAccessibilityStore } from '@/accessibility';
 import { presetLabel } from '@/accessibility/scale';
 import { BigButton, Screen, Text } from '@/design';
 import { colors, fontSizes, hitSlop, radii, scaledFontSize, spacing } from '@/design/tokens';
+import { useI18n } from '@/i18n';
 import type { LanguageCode } from '@/models';
 
 const SPEECH_RATE_STEP = 0.1;
@@ -129,6 +130,7 @@ export default function FamilySettingsScreen() {
   const fontSize = useAccessibilityStore((s) =>
     scaledFontSize(s.fontSize, fontSizes.md)
   );
+  const { t } = useI18n();
   const preset = useAccessibilityStore((s) => s.fontSize);
   const highContrast = useAccessibilityStore((s) => s.highContrast);
   const ttsEnabled = useAccessibilityStore((s) => s.ttsEnabled);
@@ -155,16 +157,16 @@ export default function FamilySettingsScreen() {
     <Screen contentContainerStyle={styles.container}>
       <View style={styles.header}>
         <Text variant="title" align="center">
-          Senior Settings
+          {t('settings.title')}
         </Text>
         <Text variant="body" align="center" color={colors.textSecondary}>
-          Adjust the experience for your loved one.
+          {t('settings.subtitle')}
         </Text>
       </View>
 
       <View style={styles.section}>
         <Text variant="heading" color={colors.primary}>
-          Text Size
+          {t('settings.textSize')}
         </Text>
         <View style={styles.fontSizeRow}>
           <Pressable
@@ -207,26 +209,26 @@ export default function FamilySettingsScreen() {
 
       <View style={styles.section}>
         <SettingRow
-          label="High Contrast"
-          description="Stronger colors for better visibility."
+          label={t('settings.highContrast')}
+          description={t('settings.highContrastDesc')}
           control={
             <Switch
               value={highContrast}
               onValueChange={setHighContrast}
-              accessibilityLabel="High contrast"
+              accessibilityLabel={t('settings.highContrast')}
               trackColor={{ false: colors.border, true: colors.primary }}
               thumbColor={highContrast ? colors.textInverse : colors.textSecondary}
             />
           }
         />
         <SettingRow
-          label="Read Responses Aloud"
-          description="The app will speak AI replies and translations."
+          label={t('settings.readAloud')}
+          description={t('settings.readAloudDesc')}
           control={
             <Switch
               value={ttsEnabled}
               onValueChange={setTtsEnabled}
-              accessibilityLabel="Read responses aloud"
+              accessibilityLabel={t('settings.readAloud')}
               trackColor={{ false: colors.border, true: colors.primary }}
               thumbColor={ttsEnabled ? colors.textInverse : colors.textSecondary}
             />
@@ -236,7 +238,7 @@ export default function FamilySettingsScreen() {
 
       <View style={styles.section}>
         <Text variant="heading" color={colors.primary}>
-          Speech Speed
+          {t('settings.speechSpeed')}
         </Text>
         <Stepper
           value={speechRate}
@@ -250,7 +252,7 @@ export default function FamilySettingsScreen() {
 
       <View style={styles.section}>
         <Text variant="heading" color={colors.primary}>
-          Primary Language
+          {t('settings.language')}
         </Text>
         <View style={styles.languageRow}>
           <LanguageOption
@@ -270,13 +272,13 @@ export default function FamilySettingsScreen() {
 
       <View style={styles.footer}>
         <BigButton
-          label="Reset to Defaults"
+          label={t('settings.reset')}
           variant="ghost"
           icon={<FontAwesome6 name="rotate-left" size={fontSize} color={colors.primary} />}
           onPress={reset}
         />
         <BigButton
-          label="Back"
+          label={t('common.back')}
           variant="ghost"
           icon={<FontAwesome6 name="arrow-left" size={fontSize} color={colors.primary} />}
           onPress={() => router.back()}

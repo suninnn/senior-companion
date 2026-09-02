@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
@@ -150,33 +150,31 @@ export default function NewsScreen() {
           </View>
 
           <View style={styles.playerControls}>
-            <BigButton
-              label="Previous"
-              variant="secondary"
-              icon={<FontAwesome6 name="backward-step" size={fontSize} color={colors.text} />}
+            <Pressable
               onPress={playPrevious}
-              fullWidth={false}
-            />
-            <BigButton
-              label={status.playing ? 'Pause' : 'Play'}
-              variant="primary"
-              icon={
-                <FontAwesome6
-                  name={status.playing ? 'pause' : 'play'}
-                  size={fontSize}
-                  color={colors.textInverse}
-                />
-              }
+              style={({ pressed }) => [styles.controlBtn, { opacity: pressed ? 0.6 : 1 }]}
+            >
+              <FontAwesome6 name="backward-step" size={fontSize * 1.1} color={colors.text} />
+            </Pressable>
+            <Pressable
               onPress={togglePlay}
-              fullWidth={false}
-            />
-            <BigButton
-              label="Next"
-              variant="secondary"
-              icon={<FontAwesome6 name="forward-step" size={fontSize} color={colors.text} />}
+              style={({ pressed }) => [
+                styles.playBtn,
+                { backgroundColor: colors.primary, opacity: pressed ? 0.8 : 1 },
+              ]}
+            >
+              <FontAwesome6
+                name={status.playing ? 'pause' : 'play'}
+                size={fontSize * 1.2}
+                color={colors.textInverse}
+              />
+            </Pressable>
+            <Pressable
               onPress={playNext}
-              fullWidth={false}
-            />
+              style={({ pressed }) => [styles.controlBtn, { opacity: pressed ? 0.6 : 1 }]}
+            >
+              <FontAwesome6 name="forward-step" size={fontSize * 1.1} color={colors.text} />
+            </Pressable>
           </View>
         </View>
       ) : !loading ? (
@@ -189,25 +187,43 @@ export default function NewsScreen() {
         <Text variant="label" color={colors.textSecondary}>
           All Episodes
         </Text>
-        {items.map((item, index) => (
-          <BigButton
-            key={item.id}
-            label={`${item.title} • ${formatDuration(item.durationSec)}`}
-            variant={index === currentIndex ? 'primary' : 'secondary'}
-            icon={
-              <FontAwesome6
-                name={CATEGORY_ICONS[item.category]}
-                size={fontSize}
-                color={index === currentIndex ? colors.textInverse : colors.text}
-              />
-            }
-            onPress={() => {
-              setCurrentIndex(index);
-              player.replace(item.audioSource);
-              setTimeout(() => player.play(), 100);
-            }}
-          />
-        ))}
+        {items.map((item, index) => {
+          const isActive = index === currentIndex;
+          return (
+            <Pressable
+              key={item.id}
+              onPress={() => {
+                setCurrentIndex(index);
+                player.replace(item.audioSource);
+                setTimeout(() => player.play(), 100);
+              }}
+              style={({ pressed }) => [
+                styles.episodeRow,
+                isActive && styles.episodeRowActive,
+                { opacity: pressed ? 0.7 : 1 },
+              ]}
+            >
+              <View style={[styles.episodeIcon, isActive && { backgroundColor: colors.primary }]}>
+                <FontAwesome6
+                  name={CATEGORY_ICONS[item.category]}
+                  size={fontSize * 0.75}
+                  color={isActive ? colors.textInverse : colors.primary}
+                />
+              </View>
+              <View style={styles.episodeInfo}>
+                <Text variant="body" style={isActive && { color: colors.primary, fontWeight: '600' }}>
+                  {item.title}
+                </Text>
+                <Text variant="caption" color={colors.textSecondary}>
+                  {CATEGORY_LABELS[item.category]}
+                </Text>
+              </View>
+              <Text variant="caption" color={colors.textSecondary}>
+                {formatDuration(item.durationSec)}
+              </Text>
+            </Pressable>
+          );
+        })}
       </View>
 
       <View style={styles.footer}>
@@ -259,10 +275,47 @@ const styles = StyleSheet.create({
   playerControls: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: spacing.md,
+    alignItems: 'center',
+    gap: spacing.lg,
+  },
+  controlBtn: {
+    width: 48,
+    height: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  playBtn: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   list: {
-    gap: spacing.md,
+    gap: spacing.xs,
+  },
+  episodeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    borderRadius: radii.md,
+  },
+  episodeRowActive: {
+    backgroundColor: 'rgba(244,125,85,0.08)',
+  },
+  episodeIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(244,125,85,0.12)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  episodeInfo: {
+    flex: 1,
+    gap: 2,
   },
   footer: {
     marginTop: 'auto',

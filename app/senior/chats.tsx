@@ -5,12 +5,14 @@ import { FamilyAvatar } from '@/components/FamilyAvatar';
 import { Screen, Text } from '@/design';
 import { colors, fontSizes, scaledFontSize, spacing } from '@/design/tokens';
 import { useAccessibilityStore } from '@/accessibility';
+import { useI18n } from '@/i18n';
 import { useAppStore } from '@/store/appStore';
 
 export default function ChatsListScreen() {
   const fontSize = useAccessibilityStore((s) =>
     scaledFontSize(s.fontSize, fontSizes.sm)
   );
+  const { t } = useI18n();
   const threads = useAppStore((s) => s.threads);
   const familyMembers = useAppStore((s) => s.familyMembers);
 
@@ -73,7 +75,7 @@ export default function ChatsListScreen() {
               <View style={styles.threadInfo}>
                 <Text variant="label">{thread.name}</Text>
                 <Text variant="caption" color={colors.textSecondary} numberOfLines={1}>
-                  {lastMsg?.text ?? 'No messages yet'}
+                  {lastMsg?.text ?? t('chat.noMessages')}
                 </Text>
               </View>
             </Pressable>

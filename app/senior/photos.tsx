@@ -4,6 +4,7 @@ import { useAccessibilityStore } from '@/accessibility';
 import { PhotoCard } from '@/components/PhotoCard';
 import { Screen, Text } from '@/design';
 import { colors, fontSizes, scaledFontSize, spacing } from '@/design/tokens';
+import { useI18n } from '@/i18n';
 import type { FamilyPhoto, PhotoComment } from '@/models';
 import { getDataRepository } from '@/services';
 
@@ -13,6 +14,7 @@ export default function FamilyPhotosScreen() {
   const fontSize = useAccessibilityStore((s) =>
     scaledFontSize(s.fontSize, fontSizes.sm)
   );
+  const { t } = useI18n();
   const [photos, setPhotos] = useState<FamilyPhoto[]>([]);
   const [loading, setLoading] = useState(true);
   const listRef = useRef<FlatList>(null);

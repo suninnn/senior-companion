@@ -15,5 +15,5 @@ export const DEFAULT_PREFS: AccessibilityPrefs = {
   highContrast: false,
   ttsEnabled: true,
   speechRate: 0.9,
-  primaryLanguage: 'zh-CN',
+  primaryLanguage: 'en-US',
 };

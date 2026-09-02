@@ -5,28 +5,30 @@ import { FamilyMemberCard } from '@/components/FamilyMemberCard';
 import { Screen, Text, BigButton } from '@/design';
 import { colors, fontSizes, scaledFontSize, spacing } from '@/design/tokens';
 import { useAccessibilityStore } from '@/accessibility';
+import { useI18n } from '@/i18n';
 import { useAppStore } from '@/store/appStore';
 
 export default function FamilyContactsScreen() {
   const fontSize = useAccessibilityStore((s) =>
     scaledFontSize(s.fontSize, fontSizes.md)
   );
+  const { t } = useI18n();
   const familyMembers = useAppStore((s) => s.familyMembers);
 
   return (
     <Screen>
       <View style={styles.header}>
         <Text variant="title" align="center">
-          My Family
+          {t('callFamily.title')}
         </Text>
         <Text variant="body" align="center" color={colors.textSecondary}>
-          Tap a card to call someone you love.
+          {t('callFamily.subtitle')}
         </Text>
       </View>
 
       {familyMembers.length === 0 ? (
         <Text variant="body" align="center" color={colors.textSecondary}>
-          Loading family members...
+          {t('callFamily.loading')}
         </Text>
       ) : null}
 
@@ -45,7 +47,7 @@ export default function FamilyContactsScreen() {
 
       <View style={styles.chatEntry}>
         <BigButton
-          label="Open Messages"
+          label={t('callFamily.openMessages')}
           variant="glass"
           icon={
             <FontAwesome6
