@@ -11,9 +11,9 @@ interface GlassCardProps extends Omit<ComponentProps<typeof View>, 'style'> {
 }
 
 const fills: Record<Intensity, string> = {
-  subtle: '#FFFFFF',
-  regular: '#FFFFFF',
-  strong: '#FFF9F5',
+  subtle: 'rgba(255,255,255,0.45)',
+  regular: 'rgba(255,255,255,0.68)',
+  strong: 'rgba(255,255,255,0.85)',
 };
 
 export function GlassCard({
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: radii.xl,
     borderWidth: 1,
-    borderColor: 'rgba(30,30,30,0.04)',
+    borderColor: 'rgba(255,255,255,0.45)',
     overflow: 'hidden',
   },
 });

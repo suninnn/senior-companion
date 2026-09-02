@@ -23,12 +23,12 @@ const variantStyles: Record<
   { bg: string; fg: string; border: string; pressed: string; shadow?: object }
 > = {
   primary: {
-    bg: colors.primary,
-    fg: colors.textInverse,
-    border: 'rgba(244,124,85,0.2)',
-    pressed: colors.primaryDark,
+    bg: 'rgba(255,255,255,0.72)',
+    fg: colors.text,
+    border: 'rgba(255,255,255,0.5)',
+    pressed: 'rgba(255,255,255,0.88)',
     shadow: {
-      shadowColor: 'rgba(244,124,85,0.3)',
+      shadowColor: 'rgba(80,50,30,0.08)',
       shadowOffset: { width: 0, height: 4 },
       shadowOpacity: 1,
       shadowRadius: 16,
@@ -36,12 +36,12 @@ const variantStyles: Record<
     },
   },
   secondary: {
-    bg: '#FFFFFF',
+    bg: 'rgba(255,255,255,0.55)',
     fg: colors.text,
-    border: 'rgba(30,30,30,0.05)',
-    pressed: '#FFF5EE',
+    border: 'rgba(255,255,255,0.5)',
+    pressed: 'rgba(255,255,255,0.72)',
     shadow: {
-      shadowColor: 'rgba(50,40,35,0.06)',
+      shadowColor: 'rgba(80,50,30,0.08)',
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 1,
       shadowRadius: 12,
@@ -49,12 +49,12 @@ const variantStyles: Record<
     },
   },
   danger: {
-    bg: colors.danger,
-    fg: colors.textInverse,
-    border: 'rgba(201,90,87,0.2)',
-    pressed: '#B04E4B',
+    bg: 'rgba(201,90,87,0.15)',
+    fg: colors.danger,
+    border: 'rgba(255,255,255,0.5)',
+    pressed: 'rgba(201,90,87,0.25)',
     shadow: {
-      shadowColor: 'rgba(201,90,87,0.25)',
+      shadowColor: 'rgba(201,90,87,0.15)',
       shadowOffset: { width: 0, height: 4 },
       shadowOpacity: 1,
       shadowRadius: 12,
@@ -63,17 +63,17 @@ const variantStyles: Record<
   },
   ghost: {
     bg: 'transparent',
-    fg: colors.primary,
+    fg: colors.text,
     border: 'transparent',
-    pressed: 'rgba(244,124,85,0.08)',
+    pressed: 'rgba(255,255,255,0.4)',
   },
   glass: {
-    bg: 'rgba(255,255,255,0.85)',
+    bg: 'rgba(255,255,255,0.72)',
     fg: colors.text,
-    border: 'rgba(30,30,30,0.04)',
-    pressed: 'rgba(255,255,255,0.95)',
+    border: 'rgba(255,255,255,0.5)',
+    pressed: 'rgba(255,255,255,0.88)',
     shadow: {
-      shadowColor: 'rgba(50,40,35,0.06)',
+      shadowColor: 'rgba(80,50,30,0.08)',
       shadowOffset: { width: 0, height: 4 },
       shadowOpacity: 1,
       shadowRadius: 16,
