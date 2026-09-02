@@ -1,6 +1,6 @@
 import { Text as RNText, type TextProps as RNTextProps } from 'react-native';
 import { useAccessibilityStore } from '@/accessibility';
-import { colors, fontSizes, fonts, scaledFontSize } from './tokens';
+import { colors, fontSizes, scaledFontSize } from './tokens';
 
 type TextVariant = 'body' | 'title' | 'heading' | 'caption' | 'label';
 
@@ -16,14 +16,6 @@ const variantBaseSize: Record<TextVariant, number> = {
   label: fontSizes.md,
   title: fontSizes.xl,
   heading: fontSizes.xxl,
-};
-
-const variantFont: Record<TextVariant, string> = {
-  caption: fonts.regular,
-  body: fonts.regular,
-  label: fonts.semiBold,
-  title: fonts.bold,
-  heading: fonts.bold,
 };
 
 const variantWeight: Record<TextVariant, '400' | '500' | '600' | '700'> = {
@@ -49,13 +41,13 @@ export function Text({
     <RNText
       style={[
         {
-          fontFamily: variantFont[variant],
+          fontFamily: 'Georgia',
           fontSize,
           fontWeight: variantWeight[variant],
           color,
           textAlign: align,
-          lineHeight: fontSize * 1.4,
-          letterSpacing: -0.005 * fontSize,
+          lineHeight: fontSize * 1.5,
+          letterSpacing: 0,
         },
         style,
       ]}

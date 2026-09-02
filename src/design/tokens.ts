@@ -41,20 +41,20 @@ export const spacing = {
 };
 
 export const fonts = {
-  regular: 'OpenSans_400Regular',
-  medium: 'OpenSans_500Medium',
-  semiBold: 'OpenSans_600SemiBold',
-  bold: 'OpenSans_700Bold',
+  regular: 'Georgia',
+  medium: 'Georgia',
+  semiBold: 'Georgia',
+  bold: 'Georgia',
 };
 
 export const fontSizes = {
   xs: 14,
   sm: 16,
-  body: 20,
-  md: 24,
-  lg: 28,
-  xl: 34,
-  xxl: 44,
+  body: 17,
+  md: 22,
+  lg: 26,
+  xl: 30,
+  xxl: 40,
 };
 
 export function scaledFontSize(
