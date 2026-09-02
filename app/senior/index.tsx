@@ -16,6 +16,9 @@ export default function SeniorHomeScreen() {
   return (
     <Screen>
       <View style={styles.header}>
+        <Text variant="title" color={colors.primary} align="center">
+          MyFam AI
+        </Text>
         <Text variant="heading" color={colors.primary} align="center">
           {greeting}, {seniorName}
         </Text>

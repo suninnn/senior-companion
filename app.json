@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "senior-companion",
-    "slug": "senior-companion",
+    "name": "MyFam AI",
+    "slug": "myfam-ai",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

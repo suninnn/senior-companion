@@ -23,7 +23,7 @@ export default function RolePickerScreen() {
     <Screen>
       <View style={styles.centered}>
         <Text variant="heading" align="center" color={colors.primary}>
-          AI Companion
+          MyFam AI
         </Text>
         <Text variant="body" align="center" color={colors.textSecondary}>
           For seniors and their families
