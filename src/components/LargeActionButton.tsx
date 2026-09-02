@@ -44,7 +44,7 @@ export function LargeActionButton({
           layout === 'vertical' ? styles.gridCard : styles.card,
           {
             minHeight,
-            backgroundColor: pressed ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.45)',
+            backgroundColor: pressed ? 'rgba(255,255,255,0.72)' : 'rgba(255,255,255,0.55)',
           },
           elevation.card,
         ]}
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     gap: spacing.md,
     borderRadius: radii.xl,
     borderWidth: 1,
-    borderColor: 'rgba(30,30,30,0.04)',
+    borderColor: 'rgba(255,255,255,0.45)',
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.md,
     overflow: 'hidden',
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     borderRadius: radii.xl,
     borderWidth: 1,
-    borderColor: 'rgba(30,30,30,0.04)',
+    borderColor: 'rgba(255,255,255,0.45)',
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.lg,
     overflow: 'hidden',

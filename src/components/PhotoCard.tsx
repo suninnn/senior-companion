@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
     paddingTop: spacing.sm,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(0,0,0,0.06)',
+    borderTopColor: 'rgba(255,255,255,0.35)',
   },
   commentRow: {
     flexDirection: 'row',
@@ -151,10 +151,10 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.12)',
+    borderColor: 'rgba(255,255,255,0.45)',
     borderRadius: radii.round,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
-    backgroundColor: '#FFF9F5',
+    backgroundColor: 'rgba(255,255,255,0.6)',
   },
 });

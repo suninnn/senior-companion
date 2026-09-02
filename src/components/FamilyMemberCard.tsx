@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.md,
     paddingTop: spacing.sm,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(30,30,30,0.05)',
+    borderTopColor: 'rgba(255,255,255,0.35)',
   },
   actionBtn: {
     flexDirection: 'row',
@@ -121,6 +121,6 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
     borderRadius: radii.round,
-    backgroundColor: 'rgba(244,124,85,0.08)',
+    backgroundColor: 'rgba(255,255,255,0.5)',
   },
 });

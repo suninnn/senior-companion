@@ -34,7 +34,7 @@ export function ModeSwitch({ current }: ModeSwitchProps) {
           variant="caption"
           style={{
             fontSize,
-            color: current === 'senior' ? colors.textInverse : colors.textSecondary,
+            color: current === 'senior' ? colors.text : colors.textSecondary,
             fontWeight: current === 'senior' ? '700' : '500',
           }}
         >
@@ -51,7 +51,7 @@ export function ModeSwitch({ current }: ModeSwitchProps) {
           variant="caption"
           style={{
             fontSize,
-            color: current === 'family' ? colors.textInverse : colors.textSecondary,
+            color: current === 'family' ? colors.text : colors.textSecondary,
             fontWeight: current === 'family' ? '700' : '500',
           }}
         >
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     borderRadius: radii.round,
-    backgroundColor: 'rgba(30,30,30,0.04)',
+    backgroundColor: 'rgba(255,255,255,0.35)',
     padding: 3,
     alignSelf: 'center',
   },
@@ -76,6 +76,6 @@ const styles = StyleSheet.create({
     borderRadius: radii.round,
   },
   activeTab: {
-    backgroundColor: colors.primary,
+    backgroundColor: 'rgba(255,255,255,0.85)',
   },
 });

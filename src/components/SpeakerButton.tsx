@@ -56,6 +56,6 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(244,124,85,0.10)',
+    backgroundColor: 'rgba(255,255,255,0.5)',
   },
 });

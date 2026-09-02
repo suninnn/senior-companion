@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
     borderRadius: radii.round,
-    backgroundColor: 'rgba(244,124,85,0.12)',
+    backgroundColor: 'rgba(255,255,255,0.55)',
     alignSelf: 'flex-start',
   },
 });
