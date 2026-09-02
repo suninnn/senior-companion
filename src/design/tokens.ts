@@ -2,23 +2,25 @@ import { scaleForPreset } from '@/accessibility';
 import type { FontSizePreset } from '@/models';
 
 export const colors = {
-  background: '#FFF7F2',
-  surface: '#FFFFFF',
+  background: '#FFF8F3',
+  surface: 'rgba(255,255,255,0.68)',
   surfaceDark: '#FFF0E8',
-  primary: '#F47C55',
+  primary: '#F47D55',
   primaryDark: '#D4603B',
   primaryLight: '#FFE5D9',
-  text: '#202124',
-  textSecondary: '#8D8D95',
+  text: '#242220',
+  textSecondary: '#77716D',
   textInverse: '#FFFFFF',
   danger: '#C95A57',
   dangerLight: '#FDE8E8',
   caution: '#B87B68',
   cautionLight: '#FEF0E4',
-  success: '#66AE91',
+  success: '#6EA68D',
   successLight: '#E4F5ED',
-  border: 'rgba(30,30,30,0.05)',
-  shadow: 'rgba(50,40,35,0.06)',
+  sage: '#6EA68D',
+  mutedRose: '#C8879D',
+  border: 'rgba(255,255,255,0.45)',
+  shadow: 'rgba(80,50,30,0.08)',
 };
 
 export const radii = {
@@ -34,7 +36,7 @@ export const spacing = {
   xs: 4,
   sm: 8,
   md: 16,
-  lg: 24,
+  lg: 28,
   xl: 32,
   xxl: 48,
   xxxl: 64,
@@ -72,28 +74,28 @@ export const hitSlop = {
 };
 
 export const gradients = {
-  appBackground: ['#FFF0E6', '#FFF7F2', '#FFFFFF', '#FFF5EE'] as const,
-  appBackgroundLocations: [0, 0.3, 0.65, 1] as const,
+  appBackground: ['#FFFFFF', '#FFF8F3', '#FFD7C5', '#FF9365'] as const,
+  appBackgroundLocations: [0, 0.25, 0.6, 1] as const,
 };
 
 export const glass = {
-  fill: 'rgba(255,255,255,0.82)',
-  fillStrong: 'rgba(255,255,255,0.95)',
-  fillSubtle: 'rgba(255,255,255,0.6)',
-  border: 'rgba(30,30,30,0.05)',
-  shadow: 'rgba(50,40,35,0.06)',
+  fill: 'rgba(255,255,255,0.68)',
+  fillStrong: 'rgba(255,255,255,0.85)',
+  fillSubtle: 'rgba(255,255,255,0.45)',
+  border: 'rgba(255,255,255,0.45)',
+  shadow: 'rgba(80,50,30,0.08)',
 };
 
 export const elevation = {
   card: {
-    shadowColor: 'rgba(50,40,35,0.06)',
+    shadowColor: 'rgba(80,50,30,0.08)',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 1,
     shadowRadius: 16,
     elevation: 4,
   },
   floating: {
-    shadowColor: 'rgba(50,40,35,0.10)',
+    shadowColor: 'rgba(80,50,30,0.12)',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 1,
     shadowRadius: 30,
