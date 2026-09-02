@@ -94,9 +94,9 @@ const styles = StyleSheet.create({
     gap: spacing.md,
     padding: spacing.md,
     borderRadius: 16,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'rgba(255,255,255,0.68)',
     borderWidth: 1,
-    borderColor: 'rgba(30,30,30,0.04)',
+    borderColor: 'rgba(255,255,255,0.45)',
   },
   groupAvatar: {
     width: 48,

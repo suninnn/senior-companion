@@ -159,19 +159,19 @@ const styles = StyleSheet.create({
     maxWidth: '75%',
     padding: spacing.md,
     borderRadius: 16,
-    backgroundColor: 'rgba(255,255,255,0.65)',
+    backgroundColor: 'rgba(255,255,255,0.55)',
     alignSelf: 'flex-start',
     gap: 2,
   },
   selfBubble: {
     alignSelf: 'flex-end',
-    backgroundColor: colors.primaryLight,
+    backgroundColor: 'rgba(244,125,85,0.15)',
   },
   nudgeBubble: {
     alignSelf: 'center',
     padding: spacing.sm,
     borderRadius: 999,
-    backgroundColor: 'rgba(10,102,194,0.08)',
+    backgroundColor: 'rgba(110,166,141,0.15)',
     paddingHorizontal: spacing.md,
   },
   voiceRow: {
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     borderTopWidth: 1,
     borderTopColor: 'rgba(255,255,255,0.45)',
-    backgroundColor: 'rgba(255,255,255,0.65)',
+    backgroundColor: 'rgba(255,255,255,0.55)',
   },
   textRow: {
     flex: 1,
@@ -197,10 +197,10 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.12)',
+    borderColor: 'rgba(255,255,255,0.4)',
     borderRadius: 999,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
-    backgroundColor: 'rgba(255,255,255,0.6)',
+    backgroundColor: 'rgba(255,255,255,0.5)',
   },
 });
