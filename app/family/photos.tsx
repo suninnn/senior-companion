@@ -17,9 +17,16 @@ function generateId() {
 }
 
 function PhotoThumb({ photo }: { photo: FamilyPhoto }) {
+  const thumbSource =
+    typeof photo.uri === 'number'
+      ? photo.uri
+      : typeof photo.uri === 'object' && photo.uri !== null && 'uri' in photo.uri
+        ? photo.uri
+        : { uri: photo.uri as string };
+
   return (
     <View style={styles.thumb}>
-      <Image source={typeof photo.uri === 'number' ? photo.uri : { uri: photo.uri }} style={styles.thumbImage} contentFit="cover" />
+      <Image source={thumbSource} style={styles.thumbImage} contentFit="cover" />
       <Text variant="caption" align="center" color={colors.textSecondary} numberOfLines={1}>
         {photo.caption || photo.senderName}
       </Text>

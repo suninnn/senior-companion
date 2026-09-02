@@ -9,7 +9,7 @@ export interface PhotoComment {
 
 export interface FamilyPhoto {
   id: string;
-  uri: string | number;
+  uri: string | number | { uri: string; width?: number; height?: number };
   senderName: string;
   caption?: string;
   createdAt: string;

@@ -9,7 +9,7 @@ import { VoiceCommentButton } from './VoiceCommentButton';
 import type { PhotoComment } from '@/models';
 
 interface PhotoCardProps {
-  uri: string | number;
+  uri: string | number | { uri: string; width?: number; height?: number };
   senderName: string;
   caption?: string;
   createdAt: string;
@@ -58,10 +58,17 @@ export function PhotoCard({
     setTextComment('');
   };
 
+  const imageSource =
+    typeof uri === 'number'
+      ? uri
+      : typeof uri === 'object' && uri !== null && 'uri' in uri
+        ? uri
+        : { uri: uri as string };
+
   return (
     <GlassCard intensity="subtle" padding="sm">
       <Image
-        source={typeof uri === 'number' ? uri : { uri }}
+        source={imageSource}
         style={[styles.image, { height: imageHeight }]}
         contentFit="cover"
         transition={300}
