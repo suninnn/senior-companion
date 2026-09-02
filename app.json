@@ -6,8 +6,15 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "scheme": "seniorcompanion",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "This app uses the microphone so you can talk to the AI companion and record voice messages.",
+        "NSPhotoLibraryUsageDescription": "This app lets family members share photos with you.",
+        "NSCameraUsageDescription": "This app uses the camera so you can take and share selfies with your family.",
+        "NSLocationWhenInUseUsageDescription": "This app uses your location so your family knows you are safe."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +23,33 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.CAMERA",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-audio",
+      "expo-image",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Senior Companion to use the camera so you can take and share selfies with your family."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow Senior Companion to share your location with your family so they know you are safe."
+        }
+      ],
+      "expo-font"
+    ]
   }
 }
