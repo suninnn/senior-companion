@@ -5,7 +5,7 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { useAccessibilityStore } from '@/accessibility';
 import { MicButton } from '@/components/MicButton';
-import { BigButton, Screen, Text } from '@/design';
+import { BigButton, BackHeader, Screen, Text } from '@/design';
 import { colors, fontSizes, radii, scaledFontSize, spacing } from '@/design/tokens';
 import { useVoiceSession } from '@/hooks/useVoiceSession';
 import {
@@ -259,6 +259,7 @@ export default function TalkToAIScreen() {
 
   return (
     <Screen contentContainerStyle={styles.container}>
+      <BackHeader title={isZh ? 'AI 助手' : 'Talk to AI'} />
       <View style={styles.header}>
         <Text variant="title" align="center">
           {isZh ? 'AI 助手' : 'Talk to AI'}
