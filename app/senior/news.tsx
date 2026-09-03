@@ -4,7 +4,7 @@ import { router } from 'expo-router';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { useAccessibilityStore } from '@/accessibility';
-import { BigButton, Screen, Text } from '@/design';
+import { BigButton, BackHeader, Screen, Text } from '@/design';
 import { colors, fontSizes, radii, scaledFontSize, spacing } from '@/design/tokens';
 import type { AudioItem, NewsCategory } from '@/models';
 import { getDataRepository } from '@/services';
@@ -89,6 +89,7 @@ export default function NewsScreen() {
 
   return (
     <Screen contentContainerStyle={styles.container}>
+      <BackHeader title="News & Podcasts" />
       <View style={styles.header}>
         <Text variant="title" align="center">
           News & Podcasts
