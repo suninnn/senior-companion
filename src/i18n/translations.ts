@@ -116,6 +116,7 @@ export const en = {
     denied: 'Location access was denied. Please enable it in Settings.',
     error: 'Could not get location. Please try again.',
     updatedAgo: 'min ago',
+    demoAddress: '123 Oak Lane, Sunnyvale, CA 94085',
   },
   callFamily: {
     title: 'My Family',
@@ -442,6 +443,7 @@ export const zh: DeepStringMap<typeof en> = {
     denied: '位置权限被拒绝，请在设置中开启。',
     error: '无法获取位置，请重试。',
     updatedAgo: '分钟前',
+    demoAddress: '加利福尼亚州桑尼维尔市橡树巷123号',
   },
   callFamily: {
     title: '我的家人',
