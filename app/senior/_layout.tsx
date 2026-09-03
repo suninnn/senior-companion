@@ -18,9 +18,9 @@ export default function SeniorLayout() {
         tabBarInactiveTintColor: '#8E8E93',
         tabBarLabelStyle: { fontSize, fontWeight: '600' },
         tabBarStyle: {
-          height: 68,
-          paddingBottom: 8,
-          paddingTop: 8,
+          height: 64,
+          paddingBottom: 6,
+          paddingTop: 6,
           borderTopWidth: 0.5,
           borderTopColor: 'rgba(0,0,0,0.08)',
           backgroundColor: 'rgba(255,248,243,0.95)',
