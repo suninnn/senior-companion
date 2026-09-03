@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { FamilyAvatar } from '@/components/FamilyAvatar';
-import { Screen, Text } from '@/design';
+import { Screen, Text, BackHeader } from '@/design';
 import { colors, fontSizes, scaledFontSize, spacing } from '@/design/tokens';
 import { useAccessibilityStore } from '@/accessibility';
 import { useI18n } from '@/i18n';
@@ -34,6 +34,7 @@ export default function ChatsListScreen() {
 
   return (
     <Screen>
+      <BackHeader />
       <View style={styles.list}>
         {groupThread ? (
           <Pressable
