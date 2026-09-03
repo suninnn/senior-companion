@@ -15,7 +15,6 @@ export default function FamTab() {
   const { t } = useI18n();
   const familyMembers = useAppStore((s) => s.familyMembers);
   const threads = useAppStore((s) => s.threads);
-  const location = useAppStore((s) => s.location);
 
   const topContacts = useMemo(() => familyMembers.slice(0, 2), [familyMembers]);
   const latestThread = useMemo(() => {
@@ -28,7 +27,7 @@ export default function FamTab() {
   }, [threads]);
 
   return (
-    <Screen>
+    <Screen contentContainerStyle={styles.screen}>
       <View style={styles.header}>
         <Text variant="heading" color={colors.primary}>
           {t('fam.title')}
@@ -109,7 +108,7 @@ export default function FamTab() {
             label={t('fam.takePhoto')}
             variant="primary"
             icon={<FontAwesome6 name="camera" size={fontSize} color={colors.textInverse} />}
-            onPress={() => router.push('/senior/photos')}
+            onPress={() => router.push('/senior/camera')}
           />
         </View>
       </GlassCard>
@@ -120,7 +119,7 @@ export default function FamTab() {
           <FontAwesome6 name="location-dot" size={fontSize} color={colors.success} />
           <Text variant="label">{t('fam.location')}</Text>
         </View>
-        <Text variant="body">{location.address}</Text>
+        <Text variant="body">{t('location.demoAddress')}</Text>
         <Text variant="caption" color={colors.success}>
           {t('fam.sharedWithFamily')}
         </Text>
@@ -136,6 +135,9 @@ export default function FamTab() {
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    gap: spacing.sm,
+  },
   header: {
     gap: spacing.xs,
   },
@@ -143,18 +145,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.xs,
   },
   contactRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.md,
-    paddingVertical: spacing.sm,
+    gap: spacing.sm,
+    paddingVertical: spacing.xs,
   },
   contactAvatar: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
@@ -167,16 +169,16 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   callBtn: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     backgroundColor: 'rgba(244,125,85,0.12)',
     alignItems: 'center',
     justifyContent: 'center',
   },
   messagePreview: {
     gap: 2,
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.xs,
   },
   photoButtons: {
     gap: spacing.sm,
