@@ -100,7 +100,7 @@ export default function SeniorHomeScreen() {
         </Text>
       </View>
 
-      <GlassCard padding="lg" style={styles.aiCard}>
+      <GlassCard padding="md" style={styles.aiCard}>
         <View style={styles.aiIconCircle}>
           <FontAwesome6 name="microphone" size={fontSize * 1.5} color={colors.textInverse} />
         </View>
@@ -219,17 +219,17 @@ export default function SeniorHomeScreen() {
 
 const styles = StyleSheet.create({
   header: {
-    gap: spacing.sm,
+    gap: spacing.xs,
     alignItems: 'center',
   },
   aiCard: {
     alignItems: 'center',
-    gap: spacing.md,
+    gap: spacing.sm,
   },
   aiIconCircle: {
-    width: 72,
-    height: 72,
-    borderRadius: 36,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
     backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
@@ -240,8 +240,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   doseList: {
-    gap: spacing.sm,
-    marginTop: spacing.sm,
+    gap: spacing.xs,
+    marginTop: spacing.xs,
   },
   doseRow: {
     flexDirection: 'row',
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
     gap: 1,
   },
   shortcuts: {
-    gap: spacing.sm,
+    gap: spacing.xs,
   },
   emergencyRow: {
     flexDirection: 'row',
@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
     paddingVertical: spacing.md,
     borderRadius: radii.xl,
-    minHeight: 80,
+    minHeight: 64,
   },
   emergency911: {
     backgroundColor: colors.danger,
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
     borderRadius: radii.xl,
     backgroundColor: 'rgba(255,255,255,0.55)',
@@ -295,9 +295,9 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255,255,255,0.45)',
   },
   shortcutIcon: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
