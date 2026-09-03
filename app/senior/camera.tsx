@@ -2,7 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import { Alert, Pressable, StyleSheet, View } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { Image } from 'expo-image';
-import { BigButton, GlassCard, Screen, Text } from '@/design';
+import { BigButton, BackHeader, GlassCard, Screen, Text } from '@/design';
 import { colors, fontSizes, radii, scaledFontSize, spacing } from '@/design/tokens';
 import { useAccessibilityStore } from '@/accessibility';
 import { canUseCamera } from '@/platform/capabilities';
@@ -50,6 +50,7 @@ export default function CameraScreen() {
   if (!canUseCamera || !CameraModule?.Camera) {
     return (
       <Screen>
+        <BackHeader title="Camera" />
         <GlassCard padding="lg">
           <View style={styles.center}>
             <FontAwesome6 name="camera" size={fontSize * 2} color={colors.primary} />
@@ -91,6 +92,7 @@ export default function CameraScreen() {
   if (hasPermission === null) {
     return (
       <Screen>
+        <BackHeader title="Camera" />
         <GlassCard padding="lg">
           <View style={styles.center}>
             <FontAwesome6 name="camera" size={fontSize * 2} color={colors.primary} />
@@ -110,6 +112,7 @@ export default function CameraScreen() {
   if (hasPermission === false) {
     return (
       <Screen>
+        <BackHeader title="Camera" />
         <GlassCard padding="lg">
           <View style={styles.center}>
             <FontAwesome6 name="camera" size={fontSize * 2} color={colors.textSecondary} />
@@ -130,6 +133,7 @@ export default function CameraScreen() {
   if (capturedUri) {
     return (
       <Screen gradient={false}>
+        <BackHeader title="Camera" />
         <Image
           source={{ uri: capturedUri }}
           style={styles.fullPreview}
@@ -146,6 +150,9 @@ export default function CameraScreen() {
   return (
     <Screen gradient={false}>
       <CameraView ref={cameraRef} style={styles.camera} facing="front">
+        <View style={styles.backOverlay}>
+          <BackHeader light />
+        </View>
         <View style={styles.shutterRow}>
           <Pressable
             accessibilityRole="button"
@@ -173,6 +180,13 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: radii.xl,
     overflow: 'hidden',
+  },
+  backOverlay: {
+    position: 'absolute',
+    top: spacing.md,
+    left: spacing.md,
+    right: spacing.md,
+    zIndex: 10,
   },
   shutterRow: {
     flex: 1,
