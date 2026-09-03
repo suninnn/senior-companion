@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Dimensions, FlatList, StyleSheet, View } from 'react-native';
 import { useAccessibilityStore } from '@/accessibility';
 import { PhotoCard } from '@/components/PhotoCard';
-import { Screen, Text } from '@/design';
+import { Screen, Text, BackHeader } from '@/design';
 import { colors, fontSizes, scaledFontSize, spacing } from '@/design/tokens';
 import { useI18n } from '@/i18n';
 import type { FamilyPhoto, PhotoComment } from '@/models';
@@ -50,6 +50,7 @@ export default function FamilyPhotosScreen() {
   if (loading) {
     return (
       <Screen>
+        <BackHeader title={t('photos.title')} />
         <Text variant="body" align="center" color={colors.textSecondary}>
           Loading photos...
         </Text>
@@ -60,6 +61,7 @@ export default function FamilyPhotosScreen() {
   if (photos.length === 0) {
     return (
       <Screen>
+        <BackHeader title={t('photos.title')} />
         <Text variant="body" align="center" color={colors.textSecondary}>
           No photos yet. Ask your family to share some!
         </Text>
@@ -69,6 +71,7 @@ export default function FamilyPhotosScreen() {
 
   return (
     <Screen gradient={false}>
+      <BackHeader title={t('photos.title')} />
       <View style={styles.header}>
         <Text variant="title" align="center">
           Family Photos
