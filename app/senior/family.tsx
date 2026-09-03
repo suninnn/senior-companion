@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { FamilyMemberCard } from '@/components/FamilyMemberCard';
-import { Screen, Text, BigButton } from '@/design';
+import { Screen, Text, BigButton, BackHeader } from '@/design';
 import { colors, fontSizes, scaledFontSize, spacing } from '@/design/tokens';
 import { useAccessibilityStore } from '@/accessibility';
 import { useI18n } from '@/i18n';
@@ -17,6 +17,7 @@ export default function FamilyContactsScreen() {
 
   return (
     <Screen>
+      <BackHeader title={t('callFamily.title')} />
       <View style={styles.header}>
         <Text variant="title" align="center">
           {t('callFamily.title')}
