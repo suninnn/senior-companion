@@ -1,12 +1,13 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
-import { BigButton, GlassCard, Screen, Text } from '@/design';
+import { BigButton, BackHeader, GlassCard, Screen, Text } from '@/design';
 import { colors, fontSizes, scaledFontSize, spacing } from '@/design/tokens';
 import { useAccessibilityStore } from '@/accessibility';
 import { LocationCard } from '@/components/LocationCard';
 import { canUseGps, MOCK_LOCATION } from '@/platform/capabilities';
 import { useAppStore } from '@/store/appStore';
+import { useI18n } from '@/i18n';
 
 let LocationModule: typeof import('expo-location') | null = null;
 try {
@@ -20,6 +21,7 @@ export default function LocationScreen() {
   const fontSize = useAccessibilityStore((s) =>
     scaledFontSize(s.fontSize, fontSizes.md)
   );
+  const { t } = useI18n();
   const location = useAppStore((s) => s.location);
   const updateLocation = useAppStore((s) => s.updateLocation);
   const [loading, setLoading] = useState(false);
@@ -46,7 +48,7 @@ export default function LocationScreen() {
     try {
       const { status } = await LocationModule.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
-        Alert.alert('Location Denied', 'Please enable location in settings.');
+        Alert.alert(t('location.denied'));
         updateLocation({
           ...MOCK_LOCATION,
           isMock: true,
@@ -73,42 +75,43 @@ export default function LocationScreen() {
         isMock: false,
       });
     } catch {
-      Alert.alert('Error', 'Could not get your location.');
+      Alert.alert(t('location.error'));
     } finally {
       setLoading(false);
     }
-  }, [updateLocation]);
+  }, [updateLocation, t]);
 
   const handleShare = useCallback(() => {
     Alert.alert(
-      'Location Shared',
-      'Your current location has been shared with your family.'
+      t('location.shared'),
+      t('location.sharedMsg')
     );
-  }, []);
+  }, [t]);
 
   return (
     <Screen>
+      <BackHeader title={t('location.title')} />
       <GlassCard padding="lg">
         <View style={styles.center}>
           <FontAwesome6 name="location-dot" size={fontSize * 1.5} color={colors.primary} />
           <Text variant="heading" align="center">
-            My Location
+            {t('location.title')}
           </Text>
           <Text variant="body" align="center" color={colors.textSecondary}>
-            Share where you are so your family knows you are safe.
+            {t('location.subtitle')}
           </Text>
         </View>
       </GlassCard>
 
       <LocationCard
-        address={location.address}
-        updatedAt={`${timeAgo} min ago`}
+        address={t('location.demoAddress')}
+        updatedAt={`${timeAgo} ${t('location.updatedAgo')}`}
         showShare
       />
 
       <View style={styles.actions}>
         <BigButton
-          label={loading ? 'Getting Location...' : 'Refresh Location'}
+          label={loading ? t('location.refreshing') : t('location.refresh')}
           variant="glass"
           icon={
             <FontAwesome6
@@ -121,7 +124,7 @@ export default function LocationScreen() {
           disabled={loading}
         />
         <BigButton
-          label="Share with Family"
+          label={t('location.share')}
           variant="primary"
           icon={
             <FontAwesome6
