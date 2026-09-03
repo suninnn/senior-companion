@@ -4,7 +4,7 @@ import { router } from 'expo-router';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useAccessibilityStore } from '@/accessibility';
 import { MicButton } from '@/components/MicButton';
-import { BigButton, Screen, Text } from '@/design';
+import { BigButton, BackHeader, Screen, Text } from '@/design';
 import { colors, fontSizes, radii, scaledFontSize, spacing } from '@/design/tokens';
 import type { ScamAssessment } from '@/models';
 import { getScamProvider, getSttProvider, getTtsProvider } from '@/services';
@@ -89,6 +89,7 @@ export default function SafetyScreen() {
 
   return (
     <Screen contentContainerStyle={styles.container}>
+      <BackHeader title="Safety / Scam Help" />
       <View style={styles.header}>
         <Text variant="title" align="center">
           Safety / Scam Help
