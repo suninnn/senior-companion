@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { Alert, Modal, Pressable, StyleSheet, Switch, View } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useAccessibilityStore } from '@/accessibility';
-import { BigButton, GlassCard, Screen, Text } from '@/design';
+import { BigButton, BackHeader, GlassCard, Screen, Text } from '@/design';
 import { colors, fontSizes, radii, scaledFontSize, spacing } from '@/design/tokens';
 import { useI18n, type TranslationKey } from '@/i18n';
 
@@ -140,9 +140,10 @@ export default function MedicationScreen() {
 
   return (
     <Screen>
+      <BackHeader title={t('medication.title')} />
       {/* ── Next Medication Card ── */}
       {nextDose ? (
-        <GlassCard padding="lg" style={styles.nextCard}>
+        <GlassCard padding="md" style={styles.nextCard}>
           <View style={[styles.nextIcon, { backgroundColor: `${getMed(nextDose.medId).tint}22` }]}>
             <FontAwesome6
               name={getMed(nextDose.medId).icon}
@@ -169,7 +170,7 @@ export default function MedicationScreen() {
           />
         </GlassCard>
       ) : (
-        <GlassCard padding="lg" style={styles.nextCard}>
+        <GlassCard padding="md" style={styles.nextCard}>
           <View style={[styles.nextIcon, { backgroundColor: colors.successLight }]}>
             <FontAwesome6 name="circle-check" size={fontSize * 1.6} color={colors.success} />
           </View>
@@ -370,17 +371,17 @@ export default function MedicationScreen() {
 const styles = StyleSheet.create({
   nextCard: {
     alignItems: 'center',
-    gap: spacing.md,
+    gap: spacing.sm,
   },
   nextIcon: {
-    width: 80,
-    height: 80,
+    width: 64,
+    height: 64,
     borderRadius: radii.round,
     alignItems: 'center',
     justifyContent: 'center',
   },
   section: {
-    gap: spacing.md,
+    gap: spacing.sm,
   },
   sectionHeader: {
     flexDirection: 'row',
@@ -390,18 +391,18 @@ const styles = StyleSheet.create({
   doseRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.md,
-    paddingVertical: spacing.md,
+    gap: spacing.sm,
+    paddingVertical: spacing.sm,
   },
   medListRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.md,
-    paddingVertical: spacing.md,
+    gap: spacing.sm,
+    paddingVertical: spacing.sm,
   },
   medIcon: {
-    width: 48,
-    height: 48,
+    width: 40,
+    height: 40,
     borderRadius: radii.lg,
     alignItems: 'center',
     justifyContent: 'center',
@@ -430,7 +431,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: spacing.md,
+    gap: spacing.sm,
   },
   reminderLeft: {
     flexDirection: 'row',
@@ -451,8 +452,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     borderTopLeftRadius: radii.xxl,
     borderTopRightRadius: radii.xxl,
-    padding: spacing.lg,
-    gap: spacing.md,
+    padding: spacing.md,
+    gap: spacing.sm,
   },
   modalHeader: {
     flexDirection: 'row',
@@ -463,14 +464,14 @@ const styles = StyleSheet.create({
   viewfinder: {
     alignItems: 'center',
     justifyContent: 'center',
-    gap: spacing.md,
-    minHeight: 200,
+    gap: spacing.sm,
+    minHeight: 160,
     borderRadius: radii.xl,
     borderWidth: 2,
     borderStyle: 'dashed',
     borderColor: colors.primary,
     backgroundColor: colors.surfaceDark,
-    padding: spacing.lg,
+    padding: spacing.md,
   },
   viewfinderSuccess: {
     borderColor: colors.success,
