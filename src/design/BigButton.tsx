@@ -110,7 +110,7 @@ export function BigButton({
         {
           backgroundColor: pressed ? theme.pressed : theme.bg,
           borderColor: theme.border,
-          minHeight: Math.max(72, fontSize * 2.8),
+          minHeight: Math.max(56, fontSize * 2.8),
         },
         theme.shadow,
         fullWidth && styles.fullWidth,
