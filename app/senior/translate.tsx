@@ -3,7 +3,7 @@ import { router } from 'expo-router';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useAccessibilityStore } from '@/accessibility';
 import { MicButton } from '@/components/MicButton';
-import { BigButton, Screen, Text } from '@/design';
+import { BigButton, BackHeader, Screen, Text } from '@/design';
 import { colors, fontSizes, radii, scaledFontSize, spacing } from '@/design/tokens';
 import { useTranslationSession } from '@/hooks/useTranslationSession';
 
@@ -48,6 +48,7 @@ export default function TranslateScreen() {
 
   return (
     <Screen contentContainerStyle={styles.container}>
+      <BackHeader title="Translation" />
       <View style={styles.header}>
         <Text variant="title" align="center">
           Translation
