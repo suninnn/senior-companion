@@ -10,7 +10,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { NudgeButton } from '@/components/NudgeButton';
 import { VoiceCommentButton } from '@/components/VoiceCommentButton';
-import { Screen, Text } from '@/design';
+import { Screen, Text, BackHeader } from '@/design';
 import { colors, fontSizes, scaledFontSize, spacing } from '@/design/tokens';
 import { useAccessibilityStore } from '@/accessibility';
 import { useAppStore } from '@/store/appStore';
@@ -69,6 +69,7 @@ export default function ChatScreen() {
   if (!thread) {
     return (
       <Screen>
+        <BackHeader />
         <Text variant="body" align="center" color={colors.textSecondary}>
           Chat not found.
         </Text>
@@ -111,6 +112,7 @@ export default function ChatScreen() {
 
   return (
     <Screen gradient={false}>
+      <BackHeader title={thread.name} />
       <FlatList
         ref={listRef}
         data={thread.messages}
