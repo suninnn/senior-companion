@@ -379,14 +379,14 @@ export default function SeniorSettingsScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    gap: spacing.md,
+    gap: spacing.sm,
   },
   header: {
-    gap: spacing.sm,
+    gap: spacing.xs,
   },
   sectionContent: {
-    marginTop: spacing.sm,
-    gap: spacing.sm,
+    marginTop: spacing.xs,
+    gap: spacing.xs,
   },
   row: {
     flexDirection: 'row',
